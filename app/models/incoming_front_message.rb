@@ -1,0 +1,2 @@
+class IncomingFrontMessage < ApplicationRecord
+end

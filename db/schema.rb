@@ -10,8 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 0) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_21_063549) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "incoming_front_messages", force: :cascade do |t|
+    t.string "sender_name"
+    t.string "sender_email"
+    t.string "recipient_name"
+    t.string "recipient_email"
+    t.text "message"
+    t.string "message_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
