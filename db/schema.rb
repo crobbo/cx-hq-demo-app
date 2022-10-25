@@ -14,13 +14,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_21_063549) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "incoming_front_messages", force: :cascade do |t|
-    t.string "sender_name"
-    t.string "sender_email"
-    t.string "recipient_name"
-    t.string "recipient_email"
-    t.text "message"
-    t.string "message_url"
+  # Custom types defined in this database.
+  # Note that some types may not work with other database engines. Be careful if changing database.
+  create_enum "status", ["pending", "processing", "processed", "failed"]
+
+  create_table "events", force: :cascade do |t|
+    t.json "data"
+    t.string "source"
+    t.text "processing_errors"
+    t.enum "status", default: "pending", null: false, enum_type: "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
