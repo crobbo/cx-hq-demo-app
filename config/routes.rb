@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   root "incoming_messages#index"
+
+  post '/webhooks/:source', to: 'webhooks#create'
 end

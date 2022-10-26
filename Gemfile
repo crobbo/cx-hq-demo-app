@@ -57,9 +57,10 @@ group :development, :test do
 end
 
 group :development do
+  gem 'pry', '~> 0.13.1'
+
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
@@ -73,3 +74,7 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem 'base64'
+gem 'openssl', git: 'https://github.com/ruby/openssl'
+gem "sidekiq", "~> 6.5"

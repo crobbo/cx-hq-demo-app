@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/ruby/openssl
+  revision: 1ddbf28dcedf4a9aae118b738ebdde236f44e951
+  specs:
+    openssl (3.1.0.pre)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -68,6 +74,7 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
+    base64 (0.1.1)
     bindex (0.8.1)
     bootsnap (1.13.0)
       msgpack (~> 1.2)
@@ -82,7 +89,9 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     childprocess (4.1.0)
+    coderay (1.1.3)
     concurrent-ruby (1.1.10)
+    connection_pool (2.3.0)
     crass (1.0.6)
     cssbundling-rails (1.1.1)
       railties (>= 6.0.0)
@@ -125,6 +134,9 @@ GEM
     nokogiri (1.13.9-x86_64-linux)
       racc (~> 1.4)
     pg (1.4.4)
+    pry (0.13.1)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
     public_suffix (5.0.0)
     puma (5.6.5)
       nio4r (~> 2.0)
@@ -170,6 +182,10 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sidekiq (6.5.7)
+      connection_pool (>= 2.2.5)
+      rack (~> 2.0)
+      redis (>= 4.5.0, < 5)
     sprockets (4.1.1)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -208,17 +224,21 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  base64
   bootsnap
   capybara
   cssbundling-rails
   debug
   jbuilder
   jsbundling-rails
+  openssl!
   pg (~> 1.1)
+  pry (~> 0.13.1)
   puma (~> 5.0)
   rails (~> 7.0.4)
   redis (~> 4.0)
   selenium-webdriver
+  sidekiq (~> 6.5)
   sprockets-rails
   stimulus-rails
   turbo-rails
