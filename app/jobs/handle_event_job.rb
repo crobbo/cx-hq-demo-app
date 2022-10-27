@@ -9,7 +9,7 @@ class HandleEventJob < ApplicationJob
   end
 
   def handle_front_event(event)
-    # in here I will call a service that will handle the event
-    # create a  GoogleAPI service object
+    text = event.data['target']['data']['text']
+    GoogleManager::SentimentChecker.call(text)
   end
 end
