@@ -78,3 +78,5 @@ end
 gem 'base64'
 gem 'openssl', git: 'https://github.com/ruby/openssl'
 gem "sidekiq", "~> 6.5"
+gem 'faraday'
+gem 'google-cloud-language', '~> 1.4'

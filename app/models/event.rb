@@ -5,4 +5,5 @@ class Event < ApplicationRecord
     processed: 'processed',
     failed: 'failed'
   }, default: 'pending'
+
 end
