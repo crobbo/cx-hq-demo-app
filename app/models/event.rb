@@ -6,4 +6,7 @@ class Event < ApplicationRecord
     failed: 'failed'
   }, default: 'pending'
 
+  def processed_events
+    Event.where(status: :processed)
+  end
 end

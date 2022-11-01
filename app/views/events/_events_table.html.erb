@@ -1,0 +1,22 @@
+<div class="overflow-x-auto">
+    <table class="table w-full">
+      <!-- head -->
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>Message Url</th>
+          <th>Sentiment Score</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @events.each do |event| %>        
+        <tr class="hover">
+          <td><%= event.sender_email %></td>
+          <td><a href="https://app.frontapp.com/open/<%= event.front_message_id %>">View Message</a></td>
+          <td><%= event.sentiment_score %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+  

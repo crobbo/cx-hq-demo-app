@@ -7,7 +7,7 @@ class HandleEventJob < ApplicationJob
       event.status = :processing
       handle_front_event(event)
     end
-  end
+end
 
   def handle_front_event(event)
     score = GoogleManager::SentimentChecker.call(event.data['target']['data']['text'])
