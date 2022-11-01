@@ -5,15 +5,25 @@
         <tr>
           <th>Email</th>
           <th>Message Url</th>
-          <th>Sentiment Score</th>
+          <th>Priority</th>
+          <th>Date received</th>
         </tr>
       </thead>
       <tbody>
       <% @events.each do |event| %>        
         <tr class="hover">
           <td><%= event.sender_email %></td>
-          <td><a href="https://app.frontapp.com/open/<%= event.front_message_id %>">View Message</a></td>
-          <td><%= event.sentiment_score %></td>
+          <td><a href="https://app.frontapp.com/open/<%= event.front_message_id %>" target="_blank" class="">View Message</a></td>
+          <td>
+              <% if event.sentiment_score < -0.65 %>
+                  <span class="bg-red-500 text-white p-2 px-3 rounded-md">High</span>
+              <% elsif event.sentiment_score < -0.32 %>
+                  <span class="bg-red-500 text-white p-2 px-3 rounded-md">Medium/span>
+              <% elsif event.sentiment_score < 0 %>
+                    <span class="bg-red-500 text-white p-2 px-3 rounded-md">Low/span>
+              <% end %>
+          </td>
+          <td><%= event.created_at %> </td>
         </tr>
       <% end %>
       </tbody>
