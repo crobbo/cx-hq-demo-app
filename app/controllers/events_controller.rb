@@ -8,6 +8,6 @@ class EventsController < ApplicationController
   private
 
   def set_events
-    @events = Event.where(status: :processed, sentiment_score: -1..-0.000000000001).reverse
+    @events = Event.where(status: :processed, sentiment_score: -1..1).reverse
   end
 end

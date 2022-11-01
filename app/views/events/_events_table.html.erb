@@ -1,11 +1,13 @@
 <div class="overflow-x-auto">
+    <h1 class="text-2xl font-bold text-base-content ml-2">Message Stream</h1>
+    <p class="text-base-content ml-2 mb-5">A realtime message stream of all inbound company communication. You can adjust which messages are shown here in your account settings.</p>
     <table class="table w-full">
       <!-- head -->
       <thead>
         <tr>
           <th>Email</th>
           <th>Message Url</th>
-          <th>Priority</th>
+          <th>CX Score</th>
           <th>Date received</th>
         </tr>
       </thead>
@@ -15,12 +17,16 @@
           <td><%= event.sender_email %></td>
           <td><a href="https://app.frontapp.com/open/<%= event.front_message_id %>" target="_blank" class="">View Message</a></td>
           <td>
-              <% if event.sentiment_score < -0.65 %>
-                  <span class="bg-red-500 text-white p-2 px-3 rounded-md">High</span>
-              <% elsif event.sentiment_score < -0.32 %>
-                  <span class="bg-red-500 text-white p-2 px-3 rounded-md">Medium/span>
-              <% elsif event.sentiment_score < 0 %>
-                    <span class="bg-red-500 text-white p-2 px-3 rounded-md">Low/span>
+              <% if event.sentiment_score < -0.6 %>
+                  <span class="bg-level-5 text-white p-2 px-3 rounded-md">Negative</span>
+              <% elsif event.sentiment_score < -0.2 %>
+                  <span class="bg-level-4 text-white p-2 px-3 rounded-md">Somewhat Negative</span>
+              <% elsif event.sentiment_score < 0.2 %>
+                  <span class="bg-level-3 text-white p-2 px-3 rounded-md">Neutral</span>
+              <% elsif event.sentiment_score < 0.6 %>
+                  <span class="bg-level-2 text-white p-2 px-3 rounded-md">Somewhat Positive</span>
+              <% elsif event.sentiment_score <= 1 %>
+                  <span class="bg-level-1 text-white p-2 px-3 rounded-md">Positive</span>
               <% end %>
           </td>
           <td><%= event.created_at %> </td>
