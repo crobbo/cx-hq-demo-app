@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .table a {
   @apply underline decoration-dotted;
 } 
@@ -22,4 +21,14 @@
 }
 .bg-level-5 {
   background-color: rgb(204,50,50, 0.65);
+}
+
+.feather {
+  width: 24px;
+  height: 24px;
+  stroke: black;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
 }
