@@ -3,7 +3,9 @@
   <div class="drawer-content">
     <!-- Page content here -->
     <main class="container mx-auto flex flex-col justify-center items-center p-12">
-        <%= render "shared/stats_component", :events => @events %>
+        <%= render "shared/stats_component", :events => @events, :total_negatives => @total_negatives, 
+        :total_positives => @total_positives, :estimated_nps => @estimated_nps, :positives_percentage_change => @positives_percentage_change,
+        :negatives_percentage_change => @negatives_percentage_change, :nps_score_change => @nps_score_change %>
         <%= render "events/events_table", :events => @events %>
     </main>
   </div> 

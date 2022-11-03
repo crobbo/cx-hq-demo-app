@@ -2,28 +2,52 @@
 <div class="flex w-full mb-10">
     <div class="w-1/3 p-10">
         <div class="w-full p-5 bg-base-200 rounded-lg">
-            <h3>Total Negatives (%)</h3>
+            <h3>Negative Sentiment (%)</h3>
             <div class="flex">
-                <h1 class="text-5xl mt-1 font-semibold text-base-content mr-2">5.67%</h1>
+                <h1 class="text-5xl mt-1 font-semibold text-base-content mr-2"><%= total_negatives %>%</h1>
                 <div class="flex items-center">
-                    <span class="material-icons text-success">
-                        arrow_downward
-                    </span>
-                    <p class="text-success">2.4%</p>
+                  <% if negatives_percentage_change > 0 %>
+                  <span class="material-icons text-success">
+                      arrow_downward
+                  </span>
+                  <p class="text-success">5.65</p>                  
+              <% elsif negatives_percentage_change < 0 %>
+                  <span class="material-icons text-error">
+                    arrow_upward
+                 </span>
+                 <p class="text-error"><%= negatives_percentage_change %></p>
+              <% elsif negatives_percentage_change == 0 %>
+                  <span class="material-icons text-neutral">
+                    trending_flat
+                  </span>
+                  <p class="text-neutral"><%= negatives_percentage_change %></p>
+              <% end %>
                 </div>
             </div>
         </div>
     </div>
     <div class="w-1/3 p-10">
         <div class="w-full p-5 bg-base-200 rounded-lg">
-            <h3>Total Positives (%)</h3>
+            <h3>Positive Sentiment (%)</h3>
             <div class="flex">
-                <h1 class="text-5xl mt-1 font-semibold text-base-content mr-2">35.67%</h1>
+                <h1 class="text-5xl mt-1 font-semibold text-base-content mr-2"><%= total_positives %>%</h1>
                 <div class="flex items-center">
-                    <span class="material-icons text-success">
-                        arrow_upward
-                    </span>
-                    <p class="text-success">5.23%</p>
+                  <% if positives_percentage_change > 0 %>
+                      <span class="material-icons text-success">
+                          arrow_upward
+                      </span>
+                      <p class="text-success">9.12</p>                  
+                  <% elsif positives_percentage_change < 0 %>
+                      <span class="material-icons text-error">
+                        arrow_downward
+                     </span>
+                     <p class="text-error"><%= positives_percentage_change %></p>
+                  <% elsif positives_percentage_change == 0 %>
+                      <span class="material-icons text-neutral">
+                        trending_flat
+                      </span>
+                      <p class="text-neutral"><%= positives_percentage_change %></p>
+                  <% end %>
                 </div>
             </div>
         </div>
@@ -32,12 +56,24 @@
         <div class="w-full p-5 bg-base-200 rounded-lg">
             <h3>Estimated NPS</h3>
             <div class="flex">
-              <h1 class="text-5xl mt-1 font-semibold text-base-content mr-2">65</h1>
+              <h1 class="text-5xl mt-1 font-semibold text-base-content mr-2"><%= estimated_nps %></h1>
               <div class="flex items-center">
+              <% if nps_score_change > 0 %>
                   <span class="material-icons text-success">
                       arrow_upward
                   </span>
-                  <p class="text-success">3</p>
+                  <p class="text-success"><%= nps_score_change %></p>
+              <% elsif nps_score_change < 0 %>
+                  <span class="material-icons text-error">
+                    arrow_downward
+                  </span>
+                  <p class="text-error"><%= nps_score_change %></p>
+              <% elsif nps_score_change == 0 %>
+                  <span class="material-icons text-neutral">
+                    trending_flat
+                  </span>
+                  <p class="text-neutral"><%= nps_score_change %></p>
+              <% end %>
               </div>
           </div>
         </div>
