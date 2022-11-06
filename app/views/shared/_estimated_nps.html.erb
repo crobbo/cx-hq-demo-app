@@ -1,0 +1,25 @@
+<!-- Estimated NPS score -->
+<div class="w-full p-5 bg-base-200 rounded-lg">
+  <h3>Estimated NPS</h3>
+  <div class="flex">
+    <h1 class="text-5xl mt-1 font-semibold text-base-content mr-2"><%= estimated_nps %></h1>
+    <div class="flex items-center">
+    <% if nps_score_change > 0 %>
+        <span class="material-icons text-success">
+            arrow_upward
+        </span>
+        <p class="text-success"><%= nps_score_change %></p>
+    <% elsif nps_score_change < 0 %>
+        <span class="material-icons text-error">
+          arrow_downward
+        </span>
+        <p class="text-error"><%= nps_score_change.to_s[1..-1] %></p>
+    <% elsif nps_score_change == 0 %>
+        <span class="material-icons text-neutral">
+          trending_flat
+        </span>
+        <p class="text-neutral"><%= nps_score_change %></p>
+    <% end %>
+    </div>
+</div>
+</div>

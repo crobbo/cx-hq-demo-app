@@ -1,0 +1,18 @@
+<tr class="hover">
+  <td><%= event.sender_email %></td>
+  <td><a href="https://app.frontapp.com/open/<%= event.front_message_id %>" target="_blank" class="">View Message</a></td>
+  <td>
+      <% if event.sentiment_score < -0.6 %>
+          <span class="badge badge-error p-3">Negative</span>
+      <% elsif event.sentiment_score < -0.2 %>
+          <span class="badge badge-warning p-3">Somewhat Negative</span>
+      <% elsif event.sentiment_score < 0.2 %>
+          <span class="badge badge-info p-3">Neutral</span>
+      <% elsif event.sentiment_score < 0.6 %>
+          <span class="badge badge-accent p-3">Somewhat Positive</span>
+      <% elsif event.sentiment_score <= 1 %>
+          <span class="badge badge-success p-3">Positive</span>
+      <% end %>
+  </td>
+  <td><%= event.created_at %> </td>
+</tr>

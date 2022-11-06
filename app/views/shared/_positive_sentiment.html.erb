@@ -1,0 +1,25 @@
+ <!-- positive sentiment percentage -->
+ <div class="w-full p-5 bg-base-200 rounded-lg">
+  <h3>Positive Sentiment (%)</h3>
+  <div class="flex">
+      <h1 class="text-5xl mt-1 font-semibold text-base-content mr-2"><%= total_positives %>%</h1>
+      <div class="flex items-center">
+        <% if positives_percentage_change > 0 %>
+            <span class="material-icons text-error">
+                arrow_downward
+            </span>
+            <p class="text-error"><%= positives_percentage_change %></p>                  
+        <% elsif positives_percentage_change < 0 %>
+            <span class="material-icons text-success">
+              arrow_upward
+           </span>
+           <p class="text-success"><%= positives_percentage_change.to_s[1..-1] %></p>
+        <% elsif positives_percentage_change == 0 %>
+            <span class="material-icons text-neutral">
+              trending_flat
+            </span>
+            <p class="text-neutral"><%= positives_percentage_change %></p>
+        <% end %>
+      </div>
+  </div>
+</div>

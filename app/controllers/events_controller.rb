@@ -3,9 +3,9 @@ class EventsController < ApplicationController
   before_action :set_statistics, only: :index
 
   def index
-    @total_negatives = @statistics.total_negatives
+    @total_negatives = @statistics.percentage_negative_current_month
     @negatives_percentage_change = @statistics.negatives_percentage_change
-    @total_positives = @statistics.total_positives
+    @total_positives = @statistics.percentage_positive_current_month
     @positives_percentage_change = @statistics.positives_percentage_change
     @estimated_nps = @statistics.estimated_nps
     @nps_score_change = @statistics.nps_score_change
