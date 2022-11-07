@@ -5,3 +5,5 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+Event.create!(sender_email: "tim.cookk@apple.com", sentiment_score: 0.9, status: :processed, front_message_id: "msg_132123")
