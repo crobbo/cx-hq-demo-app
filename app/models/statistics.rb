@@ -4,14 +4,17 @@ class Statistics
   end
 
   def percentage_negative_current_month
+    return 0 if @events.count.zero?
     ((Event.where(status: :processed, sentiment_score: -1..-0.6).count.to_f / @events.count) * 100).round(2)
   end
 
   def percentage_positive_current_month
+    return 0 if @events.count.zero?
     ((Event.where(status: :processed, sentiment_score: 0.6..1).count.to_f / @events.count) * 100).round(2)
   end
 
   def estimated_nps
+    return 0 if @events.count.zero?
     promoters = Event.where(status: :processed, sentiment_score: 0.6..1).count.to_f
     detractors = Event.where(status: :processed, sentiment_score: -1..-0.6).count.to_f
     (((promoters - detractors) / @events.count) * 100).round(2)
