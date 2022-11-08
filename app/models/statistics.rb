@@ -21,15 +21,15 @@ class Statistics
   end
 
   def percentage_negative_last_month
-    80
+    0
   end
 
   def percentage_positive_last_month
-    15
+    0
   end
 
   def last_month_nps
-    -70
+    0
   end
 
   def positives_percentage_change
