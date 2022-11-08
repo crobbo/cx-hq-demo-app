@@ -4,14 +4,21 @@
   <input id="my-drawer" type="checkbox" class="drawer-toggle" />
   <div class="drawer-content">
     <!-- Page content here -->
-    <%= render "shared/navbar" %>    
-    <main class="container mx-auto flex flex-col justify-center items-center p-12">
-        <%= render "shared/stats_component", :events => @events, :total_negatives => @total_negatives, 
-        :total_positives => @total_positives, :estimated_nps => @estimated_nps, :positives_percentage_change => @positives_percentage_change,
-        :negatives_percentage_change => @negatives_percentage_change, :nps_score_change => @nps_score_change %>
-        <%= render "events/events_table", :events => @events %>
-    </main>
-    <%= render "shared/footer" %>
+      <main class="">
+        <%= render "shared/navbar" %>    
+        <div class="container mx-auto p-12 pb-0">
+            <%= render "shared/stats_component", :events => @events, :total_negatives => @total_negatives, 
+          :total_positives => @total_positives, :estimated_nps => @estimated_nps, :positives_percentage_change => @positives_percentage_change,
+          :negatives_percentage_change => @negatives_percentage_change, :nps_score_change => @nps_score_change %>
+        </div>
+        <div class="flex flex-col justify-between h-screen">
+            <div class="container mx-auto p-12 pt-0">
+                <%= render "events/events_table", :events => @events %>
+            </div>
+            <%= render "shared/footer" %>
+        </div>
+      </main>
+      
   </div> 
   <div class="drawer-side">
     <label for="my-drawer" class="drawer-overlay"></label>
@@ -20,5 +27,6 @@
       <li><a>Account Settings</a></li>
       <!-- <li><a>Sidebar Item 2</a></li> -->
     </ul>
-  </div>
+  </div> 
 </div>
+
