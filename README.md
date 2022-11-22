@@ -1,24 +1,7 @@
-# README
+# CXHQ* - Front Integration for Sentiment Scoring
+A custom app integrating Front with Google's Natural Language API to provide insightful data for customer experience teams. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Demo](https://y8p47.hatchboxapp.com/)  *Currently desktop only.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Tech stack
+Rails 7, Hotwire, TailwindCSS and DaisyUI. 
